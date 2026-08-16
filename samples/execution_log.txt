@@ -1,0 +1,134 @@
+coder@895070d6eb09:~/project$ make clean build
+rm -f image_processor
+rm -rf output data
+nvcc -std=c++14 -O2 -o image_processor src/main.cu -lnppif -lnppc
+coder@895070d6eb09:~/project$ make data
+python3 scripts/generate_test_data.py data 100 128
+Generating 100 test images (128x128) in data/
+  25/100
+  50/100
+  75/100
+  100/100
+Done.
+coder@895070d6eb09:~/project$ make run
+python3 scripts/generate_test_data.py data 100 128
+Generating 100 test images (128x128) in data/
+  25/100
+  50/100
+  75/100
+  100/100
+Done.
+mkdir -p output
+./image_processor --input data --output output --filter edge
+GPU: NVIDIA L4 (Compute 8.9)
+Pipeline: grayscale -> blur -> edge
+
+Found 100 images in data
+
+[  1/100] checker_0001.ppm
+[  2/100] circles_0002.ppm
+[  3/100] gradient_0000.ppm
+[  4/100] noise_0006.ppm
+[  5/100] noise_0007.ppm
+[  6/100] noise_0008.ppm
+[  7/100] noise_0009.ppm
+[  8/100] noise_0010.ppm
+[  9/100] noise_0011.ppm
+[ 10/100] noise_0012.ppm
+[ 11/100] noise_0013.ppm
+[ 12/100] noise_0014.ppm
+[ 13/100] noise_0015.ppm
+[ 14/100] noise_0016.ppm
+[ 15/100] noise_0017.ppm
+[ 16/100] noise_0018.ppm
+[ 17/100] noise_0019.ppm
+[ 18/100] noise_0020.ppm
+[ 19/100] noise_0021.ppm
+[ 20/100] noise_0022.ppm
+[ 21/100] noise_0023.ppm
+[ 22/100] noise_0024.ppm
+[ 23/100] noise_0025.ppm
+[ 24/100] noise_0026.ppm
+[ 25/100] noise_0027.ppm
+[ 26/100] noise_0028.ppm
+[ 27/100] noise_0029.ppm
+[ 28/100] noise_0030.ppm
+[ 29/100] noise_0031.ppm
+[ 30/100] noise_0032.ppm
+[ 31/100] noise_0033.ppm
+[ 32/100] noise_0034.ppm
+[ 33/100] noise_0035.ppm
+[ 34/100] noise_0036.ppm
+[ 35/100] noise_0037.ppm
+[ 36/100] noise_0038.ppm
+[ 37/100] noise_0039.ppm
+[ 38/100] noise_0040.ppm
+[ 39/100] noise_0041.ppm
+[ 40/100] noise_0042.ppm
+[ 41/100] noise_0043.ppm
+[ 42/100] noise_0044.ppm
+[ 43/100] noise_0045.ppm
+[ 44/100] noise_0046.ppm
+[ 45/100] noise_0047.ppm
+[ 46/100] noise_0048.ppm
+[ 47/100] noise_0049.ppm
+[ 48/100] noise_0050.ppm
+[ 49/100] noise_0051.ppm
+[ 50/100] noise_0052.ppm
+[ 51/100] noise_0053.ppm
+[ 52/100] noise_0054.ppm
+[ 53/100] noise_0055.ppm
+[ 54/100] noise_0056.ppm
+[ 55/100] noise_0057.ppm
+[ 56/100] noise_0058.ppm
+[ 57/100] noise_0059.ppm
+[ 58/100] noise_0060.ppm
+[ 59/100] noise_0061.ppm
+[ 60/100] noise_0062.ppm
+[ 61/100] noise_0063.ppm
+[ 62/100] noise_0064.ppm
+[ 63/100] noise_0065.ppm
+[ 64/100] noise_0066.ppm
+[ 65/100] noise_0067.ppm
+[ 66/100] noise_0068.ppm
+[ 67/100] noise_0069.ppm
+[ 68/100] noise_0070.ppm
+[ 69/100] noise_0071.ppm
+[ 70/100] noise_0072.ppm
+[ 71/100] noise_0073.ppm
+[ 72/100] noise_0074.ppm
+[ 73/100] noise_0075.ppm
+[ 74/100] noise_0076.ppm
+[ 75/100] noise_0077.ppm
+[ 76/100] noise_0078.ppm
+[ 77/100] noise_0079.ppm
+[ 78/100] noise_0080.ppm
+[ 79/100] noise_0081.ppm
+[ 80/100] noise_0082.ppm
+[ 81/100] noise_0083.ppm
+[ 82/100] noise_0084.ppm
+[ 83/100] noise_0085.ppm
+[ 84/100] noise_0086.ppm
+[ 85/100] noise_0087.ppm
+[ 86/100] noise_0088.ppm
+[ 87/100] noise_0089.ppm
+[ 88/100] noise_0090.ppm
+[ 89/100] noise_0091.ppm
+[ 90/100] noise_0092.ppm
+[ 91/100] noise_0093.ppm
+[ 92/100] noise_0094.ppm
+[ 93/100] noise_0095.ppm
+[ 94/100] noise_0096.ppm
+[ 95/100] noise_0097.ppm
+[ 96/100] noise_0098.ppm
+[ 97/100] noise_0099.ppm
+[ 98/100] sine_wave_0005.ppm
+[ 99/100] stripes_h_0003.ppm
+[100/100] stripes_v_0004.ppm
+
+=== Summary ===
+Images processed : 100
+Total GPU time   : 1859.41 ms
+Avg per image    : 18.59 ms
+Pipeline         : grayscale -> blur -> edge
+Output directory : output/

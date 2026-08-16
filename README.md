@@ -113,6 +113,8 @@ python3 scripts/generate_test_data.py [output_dir] [count] [size]
 │   └── main.cu                  # CUDA source (kernels + pipeline + CLI)
 ├── scripts/
 │   └── generate_test_data.py    # Test image generator (pure Python)
+├── samples/
+│   └── execution_log.txt        # Full build + run log (proof of execution)
 ├── Makefile                     # Build system
 ├── run.sh                       # One-command build-and-run script
 └── README.md
